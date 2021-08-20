@@ -1,17 +1,14 @@
-# basics.py
-
-
-### General Style Guide:
+# General Style Guide:
 # Based on Python PEP 8 @ https://www.python.org/dev/peps/pep-0008/
 
 
-### Indentation: 4 spaces per level
+# Indentation: 4 spaces per level
 """This is a general recommendation for coding. 4 spaces is popular.
 VSCode (and most editors) can insert 4 spaces for you if you press the tab key,
 and do that by default anyway."""
 
 
-### Stay below 80 characters per line.  
+# Stay below 80 characters per line.  
 # Python recommends using max. 79 characters, or 72 for docstrings.
 """This has more historic value than anything.
 In the early days of computing,
@@ -44,7 +41,7 @@ you can change the color of the ruler with:
 }"""
 
 
-### How to line breaks within a function:  
+# How to line breaks within a function:  
 # Use parentheses () to write continued code over multiple lines if possible.  
 # print(foo
 #     .bar())
@@ -66,7 +63,7 @@ The difference is a single space after the backslash.
 Easy bug/oversight that can cost you hours. But also avoidable."""
 
 
-### Line breaks and operators:  
+# Line breaks and operators:  
 # If you have to break, use line breaks before operators:  
 # sum = (a  
 #       + b  
@@ -87,7 +84,7 @@ it's now generally recommended to break before operators.
 I'm sure you can see the difference right away."""
 
 
-### Blank lines / Whitespace and Imports:  
+# Blank lines / Whitespace and Imports:  
 # two blank lines for top level functions and class definitions  
 # single blank lines between methods inside classes  
 # use blank lines sparingly in your code to group logical sections  
@@ -124,7 +121,7 @@ class TestClass(object):
 """
 
 
-### Module Level Dunders (names with double underscores around them)  
+# Module Level Dunders (names with double underscores around them)  
 # like __all__, __author__, __version__  
 # should be placed after module docstrings but before imports
 """
@@ -142,7 +139,7 @@ import dog
 """
 
 
-### Whitespace General Good Practice:  
+# Whitespace General Good Practice:  
 # Avoid excessive whitespace before commas. DO: x, y NOT: x , y  
 # Also avoid this in brackets. DO: (x[1], x[2],) NOT: ( x[ 1 ], x[ 2 ], )  
 # Keep brackets connected to functions. DO: print() NOT: print ()  
@@ -154,7 +151,7 @@ import dog
 # DO: def sum(input: a = 0, b=0) NOT: def sum(input: a = 0 b = 0)
 
 
-### Redundant Parentheses and trailing commas:  
+# Redundant Parentheses and trailing commas:  
 # You have a lot of space, so it's best to use redundant parentheses  
 # and redundant trailing commas.  
 # It's also good convention to put items in their own lines.
@@ -211,7 +208,7 @@ int main(void) {
 """
 
 
-### Comments  
+# Comments  
 # Yes.  
 # Swear a lot, this is your outlet to scream at the computer, 
 # without the computer screaming back at you.  
@@ -236,7 +233,7 @@ But after every sentence? Seems to be some readability thing.
 I prefer single spaces, and I think I'll stick to that."""
 
 
-### Docstrings:
+# Docstrings:
 # For consistency, always use triple double quotes aka """this"""
 # Also don't use blank lines before or after docstrings.
 #
@@ -255,7 +252,7 @@ I prefer single spaces, and I think I'll stick to that."""
 #     return foobar + bizbang
 
 
-### Naming Convention:
+# Naming Convention:
 
 # packages/modules: snake_case
 """Preferrably short and all lowercase names"""
@@ -274,27 +271,4 @@ clss (not so good). Try to avoid clashes in the first place if possible.
 
 # If used internally, add a underscore before the name
 # Avoid using I (capital i), l (lowercase L), or O (capital o)
-
-
-
-
-# DATATYPES
-# python has four basic data types: int float string and bool
-
-# int = any whole number
-# 8957293
-# -3298572
-# 12
-
-# float = any number with a decimal point
-# 32905.2
-# -23.0
-
-# string = everything that's between single or double quotes
-# 'awoo'
-# "AWOOOO!"
-
-# bool = true (1) or false (0)
-# true
-# 0
-
+# as single character variables if possible
