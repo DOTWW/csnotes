@@ -88,9 +88,35 @@ to work with, but you have to keep in mind that there should be a 1
 before the number. x87 extended precision does not follow this.
 """
 
+# complex
+# Complex numbers can consist of a real component and an imaginary component.
+# The imaginary component is designated with a "j" following the number.
+# 3j
+# 1 + 2j
+"""
+Complex numbers are... well... complex to explain.
+I think I used to know what these were about once but not anymore.
+But Python has a datatype for them so that's good to know if you ever need it.
+I might change this description if I understand complex numbers again.
+"""
+
+# For all numeric data types, +, -, * and / work.
+# You can typecast (convert) between the data types and also do operations
+# across different data types. Python will then use the stronger data type
+# for the output to prevent loss of precision.
+# For example: 1 + 2 = 3 (type int) but 1 + 2.0 = 3.0 (type float)
+"""
+There are many more operations you can do of course. You can round floats,
+truncate (aka. "cut") them, use advanced math functions,
+or you could print a formatted version while keeping the precision of a float.
+All of this will be handled later.
+"""
+
+# Text data type: string
 # string = everything that's between single or double quotes
 # 'awoo'
 # "AWOOOO!"
+# 
 
 # bool = true (1) or false (0)
 # true
