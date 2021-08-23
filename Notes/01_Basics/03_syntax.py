@@ -188,8 +188,8 @@ func2() # 2
 
 #     str
 # Anything between single or double quotes
-"""strings in python are not arrays of chars and can not be accessed as easily
-as in C for example. But like in C, strings end with \0 which is NULL.
+"""strings in python are arrays of bytes representing unicode characters,
+like in C or other popular programming languages. Strings end with \0 (NULL).
 Therefore the string hello which has four letters, actually has a length of 5.
 """
 s = "hello"
@@ -352,3 +352,7 @@ print(type(list1))
 # In C, an array is a consecutive block of memory assigned/allocated for easy
 # data access and manipulation. C arrays are not dynamic,
 # but they can be dynamically allocated and reallocated using functions.
+
+# String operations:
+
+# Strings are arrays 
