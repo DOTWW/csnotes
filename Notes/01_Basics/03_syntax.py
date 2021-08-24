@@ -189,8 +189,11 @@ func2() # 2
 #     str
 # Anything between single or double quotes
 """strings in python are arrays of bytes representing unicode characters,
-like in C or other popular programming languages. Strings end with \0 (NULL).
-Therefore the string hello which has four letters, actually has a length of 5.
+like in C or other popular programming languages.
+Python does not have a NULL character to terminate the string. In fact,
+string objects in python are immutable (meaning they can not be changed),
+so in order to do anything, a new object needs to be created.
+PYTHON IS WEIRD.
 """
 s = "hello"
 s = 'hello'
@@ -353,6 +356,175 @@ print(type(list1))
 # data access and manipulation. C arrays are not dynamic,
 # but they can be dynamically allocated and reallocated using functions.
 
+
 # String operations:
 
-# Strings are arrays 
+# Strings are arrays and can be accessed as such
+s = "abc"
+print(s[0], s[1], s[2])
+
+# You can loop through a string with:
+for char_ in s:
+    print(char_, end='')
+print() # new line
+
+# the length of a string can be accessed with len():
+print(len(s))
+
+# or calculated manually using the above method:
+s_count = 0
+for char_ in s:
+    s_count += 1
+print(s_count)
+
+# to check if something is contained in a string we can use the keyword "in":
+if "d" in s:
+    print("yup, there's a \"d\" in the string s:", s)
+elif "a" in s:
+    print("yup, there's an \"a\" in the string s, but no \"d\":", s)
+else:
+    print("This shouldn't happen")
+
+# you can also use the keyword not to check for something not being present:
+if "d" not in s:
+    print("Told you there was no \"d\"")
+else:
+    print("Where did that \"d\" come from?")
+
+# Note: at this point I'm starting to get really frustrated from constantly
+# having to escape my double quotes and I'm seriously considering switching to
+# single quotes for my strings because those would be a lot faster anyway.
+# EITHER WAY:
+
+# string slicing:
+
+# you can return or check a range of characters by using a range:
+# [start:end(not included):step]
+s = 'hello, world!'
+print(s[0:5])
+# you can do silly things with this:
+s = 'tacocat'
+print(s) # print s
+print(s[::-1]) # print s backwards
+print(s[::2]) # only print every second character of s
+# You can use negative indexing to start counting from the back:
+print(s[:4], s[4:], 'backwards is spelled', s[:-4:-1], s[-4::-1])
+s = '1234567'
+print(s[:4], s[4:], 'backwards is spelled', s[:-4:-1], s[-4::-1])
+
+# note this only works for strings so:
+# i = 1234567
+# print(i[0:3])
+# does not execute, but typecasting might work in some cases for this:
+i = 1234567
+print(str(i)[0:3])
+
+a = '        hi hoLLO'
+print(a)
+
+# strip removes leading and trailing whitespace
+a = a.strip()
+print(a)
+
+# uppercase and lowercase operations are built into python:
+# along with a whole array of other string related operations:
+print(a.upper())
+print(a.lower())
+print(a.capitalize())
+print(a.casefold())
+
+# replace replaces something in a string:
+a = a.replace("hi", "Hello,")
+a = a.replace("hoLLO", "World!")
+print(a)
+
+# split string returns a list with a specified separator:
+a1, a2 = a.split()
+print(a.split())
+print("a1:", a1, "a2:", a2)
+
+# strings can be concatenated (think i mentioned that before)
+b = a1 + " " + a2
+print(b)
+
+
+# String formatting:
+
+# as mentioned somewhere before, strings and numbers can't be concatenated.
+# another method than typecasting is to format something into a string:
+
+age = 30 # or any user input
+txt = 'Hello, I am {} years old'
+# do things
+print(txt.format(age))
+
+# this can also take multiple inputs:
+item_ = {"id": 122, "name": "Valve Index", "price": 999.00, "instock": 2}
+quantity_ = 3
+order_ = "Hello, I want to buy {0} of the item {1} for the total price of {2}"
+print(order_.format(quantity_, item_["name"], (quantity_*item_["price"])))
+
+if(item_["instock"] >= quantity_):
+    print("Your order can be completed.",
+        "Proceed to checkout or continue shopping?")
+else:
+    print(("We can only offer {0} of the item {1} for a total price of {2}")
+        .format(item_["instock"], item_["name"],
+            (item_["instock"]*item_["price"])))
+    print("Would you like to change your order?")
+
+# you can use numbers for the positions or you can use identifiers,
+# or you can just use empty placeholders.
+amt = 5
+txt = "{amount} Pcs For Only ${price:.2f}! {}!"
+print(txt.format("What a steal", price = 2.990, amount = amt))
+
+# you can also use funny little smiley faces to format the placeholders
+# https://www.w3schools.com/python/ref_string_format.asp for more information.
+
+txt = ("{:<8}\n" # left aligned with a space of 8
+    + "{:>8}\n" # right aligned with a space of 8
+    + "{:^8}\n" # centered with a space of 8
+    + "{:=8}\n" # places sign on the left
+    + "{:+8}\n" # uses a +/- sign for positive/negative
+    + "{:-8}\n" # uses a - sign for negative only (positive without sign)
+    + "{: 8}\n" # uses a space for pos or minus for negative
+    + "{:,}\n" # uses a comma for thousand separator
+    + "{:_}\n" # uses a underscore for thousand spearator
+    + "{:b}\n" # binary format
+    + "{:c}\n" # converts value to corresponding unicode character
+    + "{:d}\n" # decimal format
+    + "{:e}\n" # scientific format, lowercase e
+    + "{:E}\n" # scientific format, uppercase E
+    + "{:f}\n" # fix/float point number, in lowercase (inf/nan)
+    + "{:F}\n" # fix/float point number, but in uppercase (INF/NAN)
+    + "{:g}\n" # general format
+    + "{:G}\n" # general format, uppercase for scientific notation E
+    + "{:o}\n" # octal format
+    + "{:x}\n" # hex format, lowercase
+    + "{:X}\n" # hex format, uppercase
+    + "{:n}\n" # number format
+    + "{:%}" # percentage format
+    )
+print(txt.format(100,200,300,-400,500,600,700,800,900,1000,
+                1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,
+                2100,2200,2300))
+
+
+# Escape characters:
+# The backslash is used to escape some characters with special functions
+# for example an escaped \" is considered as a string character instead of
+# part of the code (to close the string).
+# \n = new line
+# \r = carriage return
+# \t = tab
+# \b = backspace
+# \f = form feed
+# \ooo = octal value
+# \xhh = hex value
+
+# string operations should have their own chapter, i should have known
+# that this gets complicated.
+# a number of string operations can be found 
+# at https://www.w3schools.com/python/python_strings_methods.asp
+
