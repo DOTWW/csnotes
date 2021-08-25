@@ -506,9 +506,9 @@ txt = ("{:<8}\n" # left aligned with a space of 8
     + "{:n}\n" # number format
     + "{:%}" # percentage format
     )
-print(txt.format(100,200,300,-400,500,600,700,800,900,1000,
-                1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,
-                2100,2200,2300))
+# print(txt.format(100,200,300,-400,500,600,700,800,900,1000,
+#                 1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,
+#                 2100,2200,2300))
 
 
 # Escape characters:
@@ -528,3 +528,60 @@ print(txt.format(100,200,300,-400,500,600,700,800,900,1000,
 # a number of string operations can be found 
 # at https://www.w3schools.com/python/python_strings_methods.asp
 
+
+# Booleans:
+# Booleans are either True or False
+# They are the result of comparisons, or can be returned by functions,
+# or they can be evaluated in other ways.
+# most Values when evaluated will return True.
+# None, 0, or empty Values like empty strings will return False.
+
+
+# Operators:
+# Operators are used to perform operations on variables and values
+
+# Arithmetic:
+(1 + 1) # Addition
+(1 - 1) # Subtraction
+(1 * 1) # Multiplication
+(1 / 1) # Division
+(1 % 1) # Modulus (returns the rest of a floor division 16 % 5 = 1)
+(1 // 1) # Floor division (any flat division 16 // 5 = 3)
+(1 ** 1) # Exponentiation (x to the power of y, like 3 ** 2 = 3² = 3 * 3 = 9)
+
+# Bitwise Operations:
+# a little harder to wrap your head around but:
+a = 50 # 0011 0010
+b = 25 # 0001 1001
+c = 75 # 0100 1011
+# the bin() function will give you the binary representation of
+# what it contains, without leading zeroes, and with an identifier that
+# it's a binary number (0b) before the number.
+print(bin(a)) # output: 0b110010
+# another way to print binary is to use the string format function
+print("{:b}".format(a).rjust(8,"0")) # output: 00110010
+
+# x >> y shifts x's bits to the right y times, dropping the rightmost bit and
+# filling with zeroes from the left.
+# NOT the same as x // (2**y), but behaves similarly in a margin.
+50 >> 1 # 0001 1001
+
+# x << y shifts bits to the left y times filling the rightmost bit with y.
+# again, behaves similarly to x * (2**y) in a margin.
+50 << 1 # 0110 0100
+
+
+print(bin(50 << 1))
+
+
+# Assignment:
+x = 1 # Assign the value to the variable
+x += 1 # Add 1 to the variable x, same as x = x + 1
+x -= 1 # Subtract 1 from the variable x, same as x = x - 1
+x *= 1 # multiply x by value and assign
+x /= 1 # divide x by value and assign
+x %= 1 # modulo of x by value
+x //= 1 # floor division of x by value
+x **= 1 # x to exponent of 1
+
+#
